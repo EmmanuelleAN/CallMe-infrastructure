@@ -2,12 +2,116 @@
   <img src="Logo%20CallMe.png" alt="Logo CallMe" width="300">
 </p>
 
+
 # Infrastructure CallMe
 
 ## Infrastructure hybride, virtualisée et sécurisée d’un centre d’appel
-CallMe est un projet de conception et de déploiement d’une infrastructure informatique complète pour un centre d’appel de 60 collaborateurs.
-Le projet couvre la virtualisation, l’administration systèmes et réseaux, la segmentation réseau, la cybersécurité, la supervision, l’automatisation ainsi que la mise en place d’un plan de reprise d’activité (PRA) dans AWS.
+
+CallMe est un projet de conception et de déploiement d’une infrastructure informatique pour un centre d’appel de 60 collaborateurs.
+
+Le projet couvre les systèmes, les réseaux, la virtualisation, la cybersécurité, la supervision, l’automatisation et la mise en place d’un PRA dans AWS.
+
+
 
 ## Contexte du projet
-CallMe est un centre d’appel disposant de plusieurs sites en France. Le projet porte sur la conception de l’infrastructure du site de Narbonne, dimensionnée pour 60 collaborateurs : 45 agents, 10 superviseurs et 5 administrateurs.
-L’objectif est de construire une infrastructure segmentée, sécurisée et administrable, tout en assurant la disponibilité des services, leur supervision et leur reprise en cas d’incident majeur.
+
+## 🎯 Contexte du projet
+
+CallMe est un centre d’appel présent sur plusieurs sites en France.
+
+Le projet concerne le site de Narbonne, composé de 45 agents, 10 superviseurs et 5 administrateurs.
+
+Le site de Narbonne a été choisi comme **site pilote pour la mise en place d’une infrastructure hybride**. Celle-ci combine une infrastructure locale virtualisée sous **Proxmox VE** et un environnement **AWS** utilisé pour le plan de reprise d’activité (PRA).
+
+Cette architecture pilote permet de tester et de valider les solutions techniques, la sécurité, la supervision et le PRA avant d’envisager leur déploiement sur les autres sites de CallMe.
+
+L’objectif est de disposer d’une infrastructure sécurisée, segmentée, supervisée et facile à administrer, capable de maintenir ou de reprendre les services essentiels en cas d’incident majeur.
+
+
+
+## Architecture technique
+
+L’infrastructure CallMe combine un environnement virtualisé local et un environnement de reprise dans AWS.
+
+Les principales solutions utilisées sont :
+
+- **Virtualisation** : Proxmox VE
+- **Réseau** : pfSense, VLAN & DHCP
+- **Annuaire et DNS** : Windows Server AD DS
+- **Gestion du parc et support** : GLPI
+- **Administration distante** : Apache Guacamole
+- **Supervision** : Centreon
+- **Automatisation** : Ansible
+- **Sécurité** : Wazuh, Suricata, Fail2ban et GPO
+- **PRA** : AWS et WireGuard
+
+
+
+## 🌐 Segmentation réseau
+
+Le réseau est séparé en plusieurs VLAN. Cette segmentation permet d’isoler les différents usages et de mieux contrôler les communications.
+
+
+| VLAN 10 | Agents | 192.168.10.0/24 |
+
+| VLAN 20 | DMZ | 192.168.20.0/24 |
+
+| VLAN 30 | Administration | 192.168.30.0/24 |
+
+| VLAN 40 | Wi-Fi Entreprise | Réseau dédié |
+
+| VLAN 50 | BYOD | Réseau isolé |
+
+**pfSense** assure le routage entre les VLAN et contrôle les flux autorisés
+
+
+
+## 🔐 Sécurisation de l’infrastructure
+
+Plusieurs niveaux de sécurité ont été mis en place pour protéger l’infrastructure
+
+Les **VLAN** permettent de séparer les différents réseaux
+
+**pfSense** contrôle les communications entre ces réseaux et assure également le service **DHCP sur certaines interfaces**
+
+**Suricata** détecte les activités réseau suspectes
+
+**Wazuh** centralise et analyse les événements de sécurité
+
+**Fail2ban** bloque certaines tentatives d’accès malveillantes
+
+Les **GPO** permettent de renforcer la sécurité et d’appliquer des règles aux postes Windows
+
+**WireGuard** sécurise la connexion entre l’infrastructure locale et le PRA hébergé dans **AWS**
+
+
+
+## Automatisation
+
+**Ansible** est utilisé pour automatiser certaines tâches d’administration sur les serveurs Linux.
+
+Des playbooks ont été créés pour :
+
+- déployer les agents **Wazuh**
+- effectuer les mises à jour des serveurs Linux
+
+Cette automatisation permet de gagner du temps et de limiter les erreurs de configuration.
+
+
+
+## ☁️ Plan de reprise d’activité AWS
+
+Un **PRA (Plan de Reprise d’Activité)** a été mis en place dans AWS afin de pouvoir restaurer les services essentiels en cas d’incident majeur sur l’infrastructure locale.
+
+L’environnement AWS comprend :
+
+- un **VPC** dédié au PRA
+- un **sous-réseau public** pour la passerelle WireGuard
+- un **sous-réseau privé** pour les serveurs de reprise
+- un serveur **GLPI de reprise**
+- un serveur **Active Directory de reprise**
+- une passerelle **WireGuard** permettant de relier AWS à l’infrastructure locale
+
+Les communications entre le site de Narbonne et AWS passent par un **tunnel VPN WireGuard sécurisé**.
+
+Des sauvegardes des données et configurations critiques sont également stockées dans **Amazon S3** afin de faciliter la restauration des services.
