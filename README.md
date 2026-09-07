@@ -115,3 +115,43 @@ L’environnement AWS comprend :
 Les communications entre le site de Narbonne et AWS passent par un **tunnel VPN WireGuard sécurisé**.
 
 Des sauvegardes des données et configurations critiques sont également stockées dans **Amazon S3** afin de faciliter la restauration des services.
+
+
+
+## 🏗️ Schéma de l’infrastructure
+
+<p align="center">
+  <img src="Annexe_B_Architecture_Infrastructure_CallMe.png" alt="Schéma de l'infrastructure CallMe" width="900">
+</p>
+
+
+
+## ✅ Tests et validation
+
+L’infrastructure a été testée afin de vérifier le fonctionnement des différents services.
+
+Plusieurs tests ont été réalisés :
+
+- communication entre les VLAN et contrôle des règles pfSense — **Annexe N**
+- fonctionnement d’AD DS et DNS — **Annexe H**
+- application des GPO sur les postes Windows — **Annexes I et O**
+- accès et fonctionnement de GLPI — **Annexe E**
+- accès distant avec Guacamole — **Annexe G**
+- supervision des services avec Centreon — **Annexe J**
+- remontée des événements de sécurité dans Wazuh — **Annexe L**
+- détection des activités réseau suspectes avec Suricata — **Annexes O et P**
+- détection et blocage avec Fail2ban — **Annexes O et P**
+- automatisation et mises à jour avec Ansible — **Annexes K et M**
+- connexion WireGuard et fonctionnement du PRA AWS — **Annexe Q**
+
+Les principaux tests de sécurité et les preuves de validation de l’infrastructure sont regroupés dans **l’Annexe P — Tests de sécurité et validation de l’infrastructure**.
+
+
+
+## 📚 Documentation du projet
+
+Le projet CallMe est accompagné d’une documentation complète comprenant le rapport principal, les procédures techniques, les configurations, les tests et les captures de validation.
+
+Les annexes sont organisées par thème, de la conception de l’architecture jusqu’au PRA AWS.
+
+La documentation comprend également le planning Jira utilisé pour suivre les différentes étapes du projet.
