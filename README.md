@@ -148,8 +148,25 @@ Les principaux tests de sécurité et les preuves de validation de l’infrastru
 
 
 
+## 📚 Documentation du projet
+
+Le projet CallMe est accompagné d’une documentation complète comprenant le rapport principal, les procédures techniques, les configurations, les tests et les captures de validation.
+
+
+
+### 📄 Rapport principal
+
+Le rapport présente la conception, le déploiement et la validation de l’infrastructure hybride du site pilote CallMe.
+
+➡️ **[Consulter le rapport complet du projet](Rapport_CallMe.pdf)**
+
+
+
 ### 📘 Annexes complètes
 
-L’ensemble des annexes techniques du projet CallMe est regroupé dans un document PDF unique.
+Les annexes viennent en complément du rapport principal. Elles apportent des détails sur les configurations, les procédures de déploiement, les tests réalisés et les preuves de validation de l’infrastructure.
 
 ➡️ **[Consulter les annexes complètes du projet](Annexes_CallMe.pdf)**
+
+
+
