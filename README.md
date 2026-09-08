@@ -253,7 +253,7 @@ Le rapport présente la conception, le déploiement et la validation de l’infr
 <br><br>
 
 
-### ◆ Annexes complètes
+### Annexes complètes
 
 Les annexes viennent en complément du rapport principal. Elles regroupent le planning du projet réalisé avec Jira, les procédures de déploiement et de configuration, ainsi que les tests et les preuves de validation de l’infrastructure.
 
