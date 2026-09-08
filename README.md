@@ -11,9 +11,10 @@ CallMe est un projet de conception et de déploiement d’une infrastructure inf
 
 Le projet couvre les systèmes, les réseaux, la virtualisation, la cybersécurité, la supervision, l’automatisation, le cloud et la mise en place d’un PRA dans AWS.
 
+<br><br>
 
 
-## Contexte du projet
+## ◆ Contexte du projet
 
 CallMe est un centre d’appel présent sur plusieurs sites en France.
 
@@ -27,9 +28,10 @@ L’objectif est de disposer d’une infrastructure sécurisée, segmentée, sup
 
 📎 **Cf. Annexes A et B — Planning Jira et architecture de l’infrastructure CallMe.**
 
+<br><br>
 
 
-## Architecture technique
+## ◆ Architecture technique
 
 L’infrastructure CallMe combine un environnement virtualisé local et un environnement de reprise dans AWS.
 
@@ -61,9 +63,11 @@ Les principales solutions utilisées sont :
 - **Annexe Q** — Mise en œuvre du PRA Cloud AWS et sauvegardes externalisées
 - **Annexe R** — Coût budgétaire Cloud et FinOps CallMe
 
+<br><br>
 
 
-## Schéma de l’infrastructure
+
+## ◆ Schéma de l’infrastructure
 
 <p align="center">
   <img src="Annexe_B_Architecture_Infrastructure_CallMe.png" alt="Schéma de l'infrastructure CallMe" width="900">
@@ -71,9 +75,11 @@ Les principales solutions utilisées sont :
 
 📎 **Cf. Annexe B — Architecture de l’infrastructure CallMe.**
 
+<br><br>
 
 
-## Segmentation réseau
+
+## ◆ Segmentation réseau
 
 Le réseau est séparé en plusieurs VLAN. Cette segmentation permet d’isoler les différents usages et de mieux contrôler les communications.
 
@@ -92,8 +98,11 @@ Le réseau est séparé en plusieurs VLAN. Cette segmentation permet d’isoler 
  **Cf. Annexe N — Configuration VLAN, DHCP et règles pare-feu pfSense.**
 
 
+<br><br>
 
-## Sécurisation de l’infrastructure
+
+
+## ◆ Sécurisation de l’infrastructure
 
 Plusieurs niveaux de sécurité ont été mis en place pour protéger l’infrastructure.
 
@@ -119,9 +128,10 @@ Les **GPO** permettent de renforcer la sécurité et d’appliquer des règles a
 - **Annexe P** — Tests de sécurité et validation de l’infrastructure
 - **Annexe Q** — Mise en œuvre du PRA Cloud AWS et sauvegardes externalisées
 
+<br><br>
 
 
-## Supervision
+## ◆ Supervision
 
 La supervision permet de suivre l’état de l’infrastructure et de détecter rapidement les problèmes.
 
@@ -136,9 +146,10 @@ Des alertes sont envoyées lorsqu’un service devient indisponible.
 - **Annexe L** — Déploiement et configuration de Wazuh
 - **Annexe P** — Tests de sécurité et validation de l’infrastructure
 
+<br><br>
 
 
-## Automatisation
+## ◆ Automatisation
 
 **Ansible** est utilisé pour automatiser certaines tâches d’administration sur les serveurs Linux.
 
@@ -153,9 +164,10 @@ Cette automatisation permet de gagner du temps et de limiter les erreurs de conf
 - **Annexe K** — Déploiement et configuration d’Ansible
 - **Annexe M** — Automatisation de la gestion des mises à jour
 
+<br><br>
 
 
-## Plan de reprise d’activité AWS
+## ◆ Plan de reprise d’activité AWS
 
 Un **PRA (Plan de Reprise d’Activité)** a été mis en place dans AWS afin de pouvoir restaurer les services essentiels en cas d’incident majeur sur l’infrastructure locale.
 
@@ -174,9 +186,10 @@ Des sauvegardes des données et configurations critiques sont également stocké
 
  **Cf. Annexe Q — Mise en œuvre du PRA Cloud AWS et sauvegardes externalisées.**
 
+<br><br>
 
 
-## Approche FinOps
+## ◆ Approche FinOps
 
 Une approche **FinOps** a été intégrée au projet afin de prendre en compte les coûts liés à l’utilisation des ressources AWS.
 
@@ -192,9 +205,10 @@ Cette approche permet d’intégrer la maîtrise des coûts dans la conception e
 
  **Cf. Annexe R — Coût budgétaire Cloud et FinOps CallMe.**
 
+<br><br>
 
 
-##  Problèmes rencontrés
+##  ◆ Problèmes rencontrés
 
 La mise en œuvre du projet a nécessité plusieurs phases de diagnostic et de résolution de problèmes techniques.
 
@@ -202,9 +216,10 @@ Ces difficultés, ainsi que les solutions mises en œuvre pour les résoudre, so
 
  **Cf. Annexe S — Problèmes rencontrés lors de la mise en œuvre du PRA CallMe.**
 
+<br><br>
 
 
-## Tests et validation
+## ◆ Tests et validation
 
 L’infrastructure a été testée afin de vérifier le fonctionnement des différents services.
 
@@ -224,9 +239,10 @@ Plusieurs tests ont été réalisés :
 
 Les principaux tests de sécurité et les preuves de validation de l’infrastructure sont regroupés dans **l’Annexe P — Tests de sécurité et validation de l’infrastructure**.
 
+<br><br>
 
 
-## Documentation du projet
+## ◆ Documentation du projet
 
 ### Rapport principal
 
@@ -234,17 +250,19 @@ Le rapport présente la conception, le déploiement et la validation de l’infr
 
 ➡️ **[Consulter le rapport complet du projet](Rapport_CallMe.pdf)**
 
+<br><br>
 
 
-### Annexes complètes
+### ◆ Annexes complètes
 
 Les annexes viennent en complément du rapport principal. Elles regroupent le planning du projet réalisé avec Jira, les procédures de déploiement et de configuration, ainsi que les tests et les preuves de validation de l’infrastructure.
 
 ➡️ **[Consulter les annexes complètes du projet](Annexes_CallMe.pdf)**
 
+<br><br>
 
 
-## Bilan du projet
+## ◆ Bilan du projet
 
 Ce projet m’a permis de mettre en pratique différentes compétences en administration systèmes et réseaux, virtualisation, cybersécurité, supervision, automatisation et cloud.
 
