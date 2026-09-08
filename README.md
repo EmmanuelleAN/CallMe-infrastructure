@@ -13,7 +13,7 @@ Le projet couvre les systèmes, les réseaux, la virtualisation, la cybersécuri
 
 
 
-## 🎯 Contexte du projet
+## Contexte du projet
 
 CallMe est un centre d’appel présent sur plusieurs sites en France.
 
@@ -29,7 +29,7 @@ L’objectif est de disposer d’une infrastructure sécurisée, segmentée, sup
 
 
 
-## 🧩 Architecture technique
+## Architecture technique
 
 L’infrastructure CallMe combine un environnement virtualisé local et un environnement de reprise dans AWS.
 
@@ -63,7 +63,7 @@ Les principales solutions utilisées sont :
 
 
 
-## 🏗️ Schéma de l’infrastructure
+## Schéma de l’infrastructure
 
 <p align="center">
   <img src="Annexe_B_Architecture_Infrastructure_CallMe.png" alt="Schéma de l'infrastructure CallMe" width="900">
@@ -73,7 +73,7 @@ Les principales solutions utilisées sont :
 
 
 
-## 🌐 Segmentation réseau
+## Segmentation réseau
 
 Le réseau est séparé en plusieurs VLAN. Cette segmentation permet d’isoler les différents usages et de mieux contrôler les communications.
 
@@ -89,11 +89,11 @@ Le réseau est séparé en plusieurs VLAN. Cette segmentation permet d’isoler 
 
 **pfSense** assure le routage entre les VLAN et contrôle les flux autorisés.
 
-📎 **Cf. Annexe N — Configuration VLAN, DHCP et règles pare-feu pfSense.**
+ **Cf. Annexe N — Configuration VLAN, DHCP et règles pare-feu pfSense.**
 
 
 
-## 🔐 Sécurisation de l’infrastructure
+## Sécurisation de l’infrastructure
 
 Plusieurs niveaux de sécurité ont été mis en place pour protéger l’infrastructure.
 
@@ -111,7 +111,7 @@ Les **GPO** permettent de renforcer la sécurité et d’appliquer des règles a
 
 **WireGuard** sécurise la connexion entre l’infrastructure locale et le PRA hébergé dans **AWS**.
 
-📎 **Cf. Annexes :**
+ **Cf. Annexes :**
 - **Annexe D** — Déploiement et configuration de pfSense
 - **Annexe I** — Déploiement et configuration du poste AGENT01
 - **Annexe N** — Configuration VLAN, DHCP et règles pare-feu pfSense
@@ -121,7 +121,7 @@ Les **GPO** permettent de renforcer la sécurité et d’appliquer des règles a
 
 
 
-## 📊 Supervision
+## Supervision
 
 La supervision permet de suivre l’état de l’infrastructure et de détecter rapidement les problèmes.
 
@@ -138,7 +138,7 @@ Des alertes sont envoyées lorsqu’un service devient indisponible.
 
 
 
-## ⚙️ Automatisation
+## Automatisation
 
 **Ansible** est utilisé pour automatiser certaines tâches d’administration sur les serveurs Linux.
 
@@ -149,13 +149,13 @@ Des playbooks ont été créés pour :
 
 Cette automatisation permet de gagner du temps et de limiter les erreurs de configuration.
 
-📎 **Cf. Annexes :**
+ **Cf. Annexes :**
 - **Annexe K** — Déploiement et configuration d’Ansible
 - **Annexe M** — Automatisation de la gestion des mises à jour
 
 
 
-## ☁️ Plan de reprise d’activité AWS
+## Plan de reprise d’activité AWS
 
 Un **PRA (Plan de Reprise d’Activité)** a été mis en place dans AWS afin de pouvoir restaurer les services essentiels en cas d’incident majeur sur l’infrastructure locale.
 
@@ -172,11 +172,11 @@ Les communications entre le site de Narbonne et AWS passent par un **tunnel VPN 
 
 Des sauvegardes des données et configurations critiques sont également stockées dans **Amazon S3** afin de faciliter la restauration des services.
 
-📎 **Cf. Annexe Q — Mise en œuvre du PRA Cloud AWS et sauvegardes externalisées.**
+ **Cf. Annexe Q — Mise en œuvre du PRA Cloud AWS et sauvegardes externalisées.**
 
 
 
-## 💰 Approche FinOps
+## Approche FinOps
 
 Une approche **FinOps** a été intégrée au projet afin de prendre en compte les coûts liés à l’utilisation des ressources AWS.
 
@@ -190,21 +190,21 @@ Plusieurs outils AWS ont été pris en compte :
 
 Cette approche permet d’intégrer la maîtrise des coûts dans la conception et l’exploitation du PRA AWS.
 
-📎 **Cf. Annexe R — Coût budgétaire Cloud et FinOps CallMe.**
+ **Cf. Annexe R — Coût budgétaire Cloud et FinOps CallMe.**
 
 
 
-## 🛠️ Problèmes rencontrés
+##  Problèmes rencontrés
 
 La mise en œuvre du projet a nécessité plusieurs phases de diagnostic et de résolution de problèmes techniques.
 
 Ces difficultés, ainsi que les solutions mises en œuvre pour les résoudre, sont présentées dans la documentation du projet.
 
-📎 **Cf. Annexe S — Problèmes rencontrés lors de la mise en œuvre du PRA CallMe.**
+ **Cf. Annexe S — Problèmes rencontrés lors de la mise en œuvre du PRA CallMe.**
 
 
 
-## ✅ Tests et validation
+## Tests et validation
 
 L’infrastructure a été testée afin de vérifier le fonctionnement des différents services.
 
@@ -226,9 +226,9 @@ Les principaux tests de sécurité et les preuves de validation de l’infrastru
 
 
 
-## 📚 Documentation du projet
+## Documentation du projet
 
-### 📄 Rapport principal
+### Rapport principal
 
 Le rapport présente la conception, le déploiement et la validation de l’infrastructure hybride du site pilote CallMe.
 
@@ -236,7 +236,7 @@ Le rapport présente la conception, le déploiement et la validation de l’infr
 
 
 
-### 📘 Annexes complètes
+### Annexes complètes
 
 Les annexes viennent en complément du rapport principal. Elles regroupent le planning du projet réalisé avec Jira, les procédures de déploiement et de configuration, ainsi que les tests et les preuves de validation de l’infrastructure.
 
@@ -244,7 +244,7 @@ Les annexes viennent en complément du rapport principal. Elles regroupent le pl
 
 
 
-## 🎓 Bilan du projet
+## Bilan du projet
 
 Ce projet m’a permis de mettre en pratique différentes compétences en administration systèmes et réseaux, virtualisation, cybersécurité, supervision, automatisation et cloud.
 
