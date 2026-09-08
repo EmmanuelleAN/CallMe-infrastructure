@@ -5,6 +5,8 @@
 
 <h1 align="center">Infrastructure CallMe</h1>
 
+<br><br>
+
 ## Infrastructure hybride, virtualisée et sécurisée d’un centre d’appel
 
 CallMe est un projet de conception et de déploiement d’une infrastructure informatique pour un centre d’appel de 60 collaborateurs.
