@@ -13,8 +13,6 @@ Le projet couvre les systèmes, les réseaux, la virtualisation, la cybersécuri
 
 
 
-## Contexte du projet
-
 ## 🎯 Contexte du projet
 
 CallMe est un centre d’appel présent sur plusieurs sites en France.
@@ -29,28 +27,27 @@ L’objectif est de disposer d’une infrastructure sécurisée, segmentée, sup
 
 
 
-## Architecture technique
+## 🧩 Architecture technique
 
 L’infrastructure CallMe combine un environnement virtualisé local et un environnement de reprise dans AWS.
 
 Les principales solutions utilisées sont :
 
 - **Virtualisation** : Proxmox VE
-- **Réseau** : pfSense, VLAN & DHCP
+- **Réseau** : pfSense, VLAN et DHCP
 - **Annuaire et DNS** : Windows Server AD DS
 - **Gestion du parc et support** : GLPI
 - **Administration distante** : Apache Guacamole
 - **Supervision** : Centreon
 - **Automatisation** : Ansible
 - **Sécurité** : Wazuh, Suricata, Fail2ban et GPO
-- **PRA** : AWS et WireGuard
-
+- **Reverse proxy** : HAProxy
+- **PRA** : AWS, Amazon S3 et WireGuard
 
 
 ## 🌐 Segmentation réseau
 
 Le réseau est séparé en plusieurs VLAN. Cette segmentation permet d’isoler les différents usages et de mieux contrôler les communications.
-
 
 | VLAN 10 | Agents | 192.168.10.0/24 |
 
@@ -58,35 +55,47 @@ Le réseau est séparé en plusieurs VLAN. Cette segmentation permet d’isoler 
 
 | VLAN 30 | Administration | 192.168.30.0/24 |
 
-| VLAN 40 | Wi-Fi Entreprise | Réseau dédié |
+| VLAN 40 | Wi-Fi Entreprise | 192.168.40.0/24 |
 
-| VLAN 50 | BYOD | Réseau isolé |
+| VLAN 50 | BYOD | 192.168.50.0/24 |
 
-**pfSense** assure le routage entre les VLAN et contrôle les flux autorisés
+**pfSense** assure le routage entre les VLAN et contrôle les flux autorisés.
 
 
 
 ## 🔐 Sécurisation de l’infrastructure
 
-Plusieurs niveaux de sécurité ont été mis en place pour protéger l’infrastructure
+Plusieurs niveaux de sécurité ont été mis en place pour protéger l’infrastructure.
 
-Les **VLAN** permettent de séparer les différents réseaux
+Les **VLAN** permettent de séparer les différents réseaux.
 
-**pfSense** contrôle les communications entre ces réseaux et assure également le service **DHCP sur certaines interfaces**
+**pfSense** contrôle les communications entre ces réseaux et assure également le service **DHCP sur certaines interfaces**.
 
-**Suricata** détecte les activités réseau suspectes
+**Suricata** détecte les activités réseau suspectes.
 
-**Wazuh** centralise et analyse les événements de sécurité
+**Wazuh** centralise et analyse les événements de sécurité.
 
-**Fail2ban** bloque certaines tentatives d’accès malveillantes
+**Fail2ban** bloque certaines tentatives d’accès malveillantes.
 
-Les **GPO** permettent de renforcer la sécurité et d’appliquer des règles aux postes Windows
+Les **GPO** permettent de renforcer la sécurité et d’appliquer des règles aux postes Windows.
 
-**WireGuard** sécurise la connexion entre l’infrastructure locale et le PRA hébergé dans **AWS**
+**WireGuard** sécurise la connexion entre l’infrastructure locale et le PRA hébergé dans **AWS**.
 
 
 
-## Automatisation
+## 📊 Supervision
+
+La supervision permet de suivre l’état de l’infrastructure et de détecter rapidement les problèmes.
+
+**Centreon** surveille la disponibilité des serveurs, des équipements réseau et des services comme GLPI.
+
+Des alertes sont envoyées lorsqu’un service devient indisponible.
+
+**Wazuh** complète cette supervision en surveillant les événements liés à la sécurité.
+
+
+
+## ⚙️ Automatisation
 
 **Ansible** est utilisé pour automatiser certaines tâches d’administration sur les serveurs Linux.
 
@@ -164,9 +173,14 @@ Le rapport présente la conception, le déploiement et la validation de l’infr
 
 ### 📘 Annexes complètes
 
-Les annexes viennent en complément du rapport principal. Elles apportent des détails sur les configurations, les procédures de déploiement, les tests réalisés et les preuves de validation de l’infrastructure.
+Les annexes viennent en complément du rapport principal. Elles regroupent le planning du projet réalisé avec Jira, les procédures de déploiement et de configuration, ainsi que les tests et les preuves de validation de l’infrastructure.
 
 ➡️ **[Consulter les annexes complètes du projet](Annexes_CallMe.pdf)**
 
 
 
+## 🎓 Bilan du projet
+
+Ce projet m’a permis de mettre en pratique différentes compétences en administration systèmes et réseaux, virtualisation, cybersécurité, supervision, automatisation et cloud.
+
+La mise en œuvre du site pilote de Narbonne m’a permis de concevoir et de déployer une infrastructure hybride complète, depuis l’architecture réseau jusqu’à la mise en place d’un PRA dans AWS.
