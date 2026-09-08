@@ -3,13 +3,13 @@
 </p>
 
 
-# Infrastructure CallMe
+<h1 align="center">Infrastructure CallMe</h1>
 
 ## Infrastructure hybride, virtualisée et sécurisée d’un centre d’appel
 
 CallMe est un projet de conception et de déploiement d’une infrastructure informatique pour un centre d’appel de 60 collaborateurs.
 
-Le projet couvre les systèmes, les réseaux, la virtualisation, la cybersécurité, la supervision, l’automatisation et la mise en place d’un PRA dans AWS.
+Le projet couvre les systèmes, les réseaux, la virtualisation, la cybersécurité, la supervision, l’automatisation, le cloud et la mise en place d’un PRA dans AWS.
 
 
 
@@ -24,6 +24,8 @@ Le site de Narbonne a été choisi comme **site pilote pour la mise en place d�
 Cette architecture pilote permet de tester et de valider les solutions techniques, la sécurité, la supervision et le PRA avant d’envisager leur déploiement sur les autres sites de CallMe.
 
 L’objectif est de disposer d’une infrastructure sécurisée, segmentée, supervisée et facile à administrer, capable de maintenir ou de reprendre les services essentiels en cas d’incident majeur.
+
+📎 **Cf. Annexes A et B — Planning Jira et architecture de l’infrastructure CallMe.**
 
 
 
@@ -43,6 +45,32 @@ Les principales solutions utilisées sont :
 - **Sécurité** : Wazuh, Suricata, Fail2ban et GPO
 - **Reverse proxy** : HAProxy
 - **PRA** : AWS, Amazon S3 et WireGuard
+- **FinOps** : AWS Pricing Calculator, Cost Explorer et CloudWatch
+
+
+📎 **Cf. Annexes :**
+- **Annexe B** — Architecture de l’infrastructure CallMe
+- **Annexe C** — Déploiement de Proxmox VE
+- **Annexe D** — Déploiement et configuration de pfSense
+- **Annexe E** — Déploiement et configuration de GLPI
+- **Annexe G** — Déploiement et configuration de Guacamole
+- **Annexe H** — Configuration et validation AD DS / DNS
+- **Annexe J** — Déploiement de Centreon
+- **Annexe K** — Déploiement et configuration d’Ansible
+- **Annexe L** — Déploiement et configuration de Wazuh
+- **Annexe Q** — Mise en œuvre du PRA Cloud AWS et sauvegardes externalisées
+- **Annexe R** — Coût budgétaire Cloud et FinOps CallMe
+
+
+
+## 🏗️ Schéma de l’infrastructure
+
+<p align="center">
+  <img src="Annexe_B_Architecture_Infrastructure_CallMe.png" alt="Schéma de l'infrastructure CallMe" width="900">
+</p>
+
+📎 **Cf. Annexe B — Architecture de l’infrastructure CallMe.**
+
 
 
 ## 🌐 Segmentation réseau
@@ -60,6 +88,8 @@ Le réseau est séparé en plusieurs VLAN. Cette segmentation permet d’isoler 
 | VLAN 50 | BYOD | 192.168.50.0/24 |
 
 **pfSense** assure le routage entre les VLAN et contrôle les flux autorisés.
+
+📎 **Cf. Annexe N — Configuration VLAN, DHCP et règles pare-feu pfSense.**
 
 
 
@@ -81,6 +111,14 @@ Les **GPO** permettent de renforcer la sécurité et d’appliquer des règles a
 
 **WireGuard** sécurise la connexion entre l’infrastructure locale et le PRA hébergé dans **AWS**.
 
+📎 **Cf. Annexes :**
+- **Annexe D** — Déploiement et configuration de pfSense
+- **Annexe I** — Déploiement et configuration du poste AGENT01
+- **Annexe N** — Configuration VLAN, DHCP et règles pare-feu pfSense
+- **Annexe O** — Mise en œuvre des mécanismes de sécurisation des systèmes et services
+- **Annexe P** — Tests de sécurité et validation de l’infrastructure
+- **Annexe Q** — Mise en œuvre du PRA Cloud AWS et sauvegardes externalisées
+
 
 
 ## 📊 Supervision
@@ -92,6 +130,11 @@ La supervision permet de suivre l’état de l’infrastructure et de détecter 
 Des alertes sont envoyées lorsqu’un service devient indisponible.
 
 **Wazuh** complète cette supervision en surveillant les événements liés à la sécurité.
+
+📎 **Cf. Annexes :**
+- **Annexe J** — Déploiement de Centreon
+- **Annexe L** — Déploiement et configuration de Wazuh
+- **Annexe P** — Tests de sécurité et validation de l’infrastructure
 
 
 
@@ -105,6 +148,10 @@ Des playbooks ont été créés pour :
 - effectuer les mises à jour des serveurs Linux
 
 Cette automatisation permet de gagner du temps et de limiter les erreurs de configuration.
+
+📎 **Cf. Annexes :**
+- **Annexe K** — Déploiement et configuration d’Ansible
+- **Annexe M** — Automatisation de la gestion des mises à jour
 
 
 
@@ -125,13 +172,35 @@ Les communications entre le site de Narbonne et AWS passent par un **tunnel VPN 
 
 Des sauvegardes des données et configurations critiques sont également stockées dans **Amazon S3** afin de faciliter la restauration des services.
 
+📎 **Cf. Annexe Q — Mise en œuvre du PRA Cloud AWS et sauvegardes externalisées.**
 
 
-## 🏗️ Schéma de l’infrastructure
 
-<p align="center">
-  <img src="Annexe_B_Architecture_Infrastructure_CallMe.png" alt="Schéma de l'infrastructure CallMe" width="900">
-</p>
+## 💰 Approche FinOps
+
+Une approche **FinOps** a été intégrée au projet afin de prendre en compte les coûts liés à l’utilisation des ressources AWS.
+
+Cette démarche permet d’estimer les coûts de l’architecture cloud, de suivre les dépenses et d’identifier les ressources pouvant être optimisées.
+
+Plusieurs outils AWS ont été pris en compte :
+
+- **AWS Pricing Calculator** pour estimer les coûts de l’architecture
+- **AWS Cost Explorer** pour analyser et suivre les dépenses
+- **Amazon CloudWatch** pour surveiller l’utilisation des ressources
+
+Cette approche permet d’intégrer la maîtrise des coûts dans la conception et l’exploitation du PRA AWS.
+
+📎 **Cf. Annexe R — Coût budgétaire Cloud et FinOps CallMe.**
+
+
+
+## 🛠️ Problèmes rencontrés
+
+La mise en œuvre du projet a nécessité plusieurs phases de diagnostic et de résolution de problèmes techniques.
+
+Ces difficultés, ainsi que les solutions mises en œuvre pour les résoudre, sont présentées dans la documentation du projet.
+
+📎 **Cf. Annexe S — Problèmes rencontrés lors de la mise en œuvre du PRA CallMe.**
 
 
 
@@ -159,10 +228,6 @@ Les principaux tests de sécurité et les preuves de validation de l’infrastru
 
 ## 📚 Documentation du projet
 
-Le projet CallMe est accompagné d’une documentation complète comprenant le rapport principal, les procédures techniques, les configurations, les tests et les captures de validation.
-
-
-
 ### 📄 Rapport principal
 
 Le rapport présente la conception, le déploiement et la validation de l’infrastructure hybride du site pilote CallMe.
@@ -183,4 +248,4 @@ Les annexes viennent en complément du rapport principal. Elles regroupent le pl
 
 Ce projet m’a permis de mettre en pratique différentes compétences en administration systèmes et réseaux, virtualisation, cybersécurité, supervision, automatisation et cloud.
 
-La mise en œuvre du site pilote de Narbonne m’a permis de concevoir et de déployer une infrastructure hybride complète, depuis l’architecture réseau jusqu’à la mise en place d’un PRA dans AWS.
+La mise en œuvre du site pilote de Narbonne m’a permis de concevoir et de déployer une infrastructure hybride complète, depuis l’architecture réseau jusqu’à la mise en place d’un PRA dans AWS, tout en intégrant les enjeux de sécurité, de supervision, d’automatisation et de maîtrise des coûts du cloud.
