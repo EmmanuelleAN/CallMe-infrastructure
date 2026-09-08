@@ -148,10 +148,8 @@ Les principaux tests de sécurité et les preuves de validation de l’infrastru
 
 
 
-## 📚 Documentation du projet
+### 📘 Annexes complètes
 
-Le projet CallMe est accompagné d’une documentation complète comprenant le rapport principal, les procédures techniques, les configurations, les tests et les captures de validation.
+L’ensemble des annexes techniques du projet CallMe est regroupé dans un document PDF unique.
 
-Les annexes sont organisées par thème, de la conception de l’architecture jusqu’au PRA AWS.
-
-La documentation comprend également le planning Jira utilisé pour suivre les différentes étapes du projet.
+➡️ **[Consulter les annexes complètes du projet](Annexes_CallMe.pdf)**
